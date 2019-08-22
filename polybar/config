@@ -1,0 +1,205 @@
+
+[colors]
+
+fg = ${xrdb:color2}
+modfg = ${xrdb:color0}
+background = ${xrdb:color0}
+foreground = ${xrdb:foreground}
+red = ${xrdb:color3}
+
+[bar/top]
+width = 100%
+height = 30
+
+monitor = eDP-1
+monitor-fallback = DP-2-1
+enable-ipc = false
+fixed-center = true
+padding-left = 1
+padding-right = 1
+
+module-margin-right = 2
+module-margin-left = 0
+
+modules-right = github volume current_draw battery
+modules-left = i3
+modules-center = date
+
+font-0 = input-regular:size=10;1.5
+font-1 = FontAwesome:size=15;2.5
+
+background = ${colors.background}
+
+tray-position = right
+tray-padding = 1
+tray-transparent = false
+tray-scale = 1.0
+
+[bar/left]
+width = 100%
+height = 30
+
+monitor = DP-1-3
+enable-ipc = false
+fixed-center = true
+padding-left = 1
+padding-right = 1
+
+module-margin-right = 2
+module-margin-left = 0
+
+modules-right = volume current_draw battery
+modules-left = i3
+modules-center = date
+
+font-0 = input-regular:size=10;1.5
+font-1 = FontAwesome:size=15;2.5
+
+background = ${colors.background}
+
+tray-position = right
+tray-padding = 1
+tray-transparent = false
+tray-scale = 1.0
+
+
+[module/i3]
+type = internal/i3
+format = <label-mode> <label-state>
+index-sort = true
+strip-wsnumbers = true
+
+label-focused-font = 4
+label-unfocused-font = 4
+label-urgent-font = 4
+label-visible-font = 4 
+
+label-focused =  %name%
+;label-focused = %index%
+;label-focused-background = ${colors.foreground}
+label-focused-foreground = ${colors.foreground}
+label-focused-padding = 1
+
+label-unfocused =  %name%
+;label-unfocused = %index%
+label-unfocused-padding = 1
+;label-unfocused-background = ${colors.black}
+label-unfocused-foreground = ${colors.foreground}
+
+label-urgent =  %name%
+;label-urgent = %index%!
+;label-urgent-background = ${colors.red}
+label-urgent-padding = 1
+label-urgent-foreground = ${colors.red}
+
+label-visible =  %name%
+;label-visible = %index%
+label-visible-foreground = ${colors.foreground}
+label-visible-padding = 1
+
+
+[module/wlan]
+type = internal/network
+interface = wlan0
+interval = 5.0
+
+format-connected-padding = 1
+format-disconnected-padding = 1
+
+format-connected = <label-connected>
+format-connected-underline = ${colors.foreground}
+format-disconnected-underline = ${colors.foreground}
+
+label-connected = %essid%
+label-disconnected =  disconnected
+label-disconnected-foreground = ${colors.red}
+
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+
+battery = BAT0
+adapter = AC0
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+
+[module/current_draw]
+type = custom/script
+
+exec = current_draw
+exec-if = is_discharging
+interval = 10
+
+label = %output%W
+
+[module/date]
+type = internal/date
+interval = 1.0
+label=%time%
+
+; See "man date" for details on how to format the date string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+date = %Y-%m-%d
+
+; Optional time format
+time = %H:%M
+
+; if `date-alt` or `time-alt` is defined, clicking
+; the module will toggle between formats
+date-alt = %A, %d %B %Y
+time-alt = %H:%M:%S
+
+[module/volume]
+type = internal/volume
+master-mixer = Master
+format-volume = <ramp-volume> <label-volume>
+label-volume = %percentage%%
+format-foreground = ${colors.foreground}
+label-muted =  %percentage%%
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+
+ramp-headphones-0 = 
+ramp-headphones-1 = i
+
+[module/github]
+type = internal/github
+
+token = ${file:~/.github_access_token}
+
+empty-notifications = true
+label =  %notifications%
+
+interval = 10
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+format-warn = <ramp> <label-warn>
+
+label = %temperature%
+label-warn = %temperature%
+
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = #FFFFFFF

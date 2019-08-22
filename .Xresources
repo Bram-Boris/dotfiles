@@ -1,0 +1,44 @@
+Xft.dpi:96
+URxvt.perl-ext-common: selection-to-clipboard
+URxvt.scrollBar: false
+URxvt.letterspacing: -1
+URxvt*font: xft:DejaVuSansMono Nerd Font:size=11
+
+! Colors 0-15.
+*.color0: #0A1218
+*color0:  #0A1218
+*.color1: #625D61
+*color1:  #625D61
+*.color2: #BD5A30
+*color2:  #BD5A30
+*.color3: #976664
+*color3:  #976664
+*.color4: #C2966C
+*color4:  #C2966C
+*.color5: #557397
+*color5:  #557397
+*.color6: #7992A4
+*color6:  #7992A4
+*.color7: #d4d1d1
+*color7:  #d4d1d1
+*.color8: #949292
+*color8:  #949292
+*.color9: #625D61
+*color9:  #625D61
+*.color10: #BD5A30
+*color10:  #BD5A30
+*.color11: #976664
+*color11:  #976664
+*.color12: #C2966C
+*color12:  #C2966C
+*.color13: #557397
+*color13:  #557397
+*.color14: #7992A4
+*color14:  #7992A4
+*.color15: #d4d1d1
+*color15:  #d4d1d1
+
+*foreground:        #d4d1d1
+*background:        #0A1218
+*.foreground:       #d4d1d1
+*.background:       #0A1218
