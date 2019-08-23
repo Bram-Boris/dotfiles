@@ -214,7 +214,7 @@ exec compton --config ~/.config/compton.conf
 exec_always feh --bg-scale ~/Pictures/muurplaten/muurplaat4.png
 
 # Polybar
-exec_always ~/.config/polybar/polybarexitscript.sh
+exec_always ~/.config/polybar/exit.sh
 
 # Suspend
 bindsym $mod+shift+m exec systemctl suspend
